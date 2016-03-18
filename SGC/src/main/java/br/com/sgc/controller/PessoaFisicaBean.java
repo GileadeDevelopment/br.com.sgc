@@ -4,10 +4,13 @@ import java.io.Serializable;
 import java.util.List;
 
 import javax.faces.bean.ManagedBean;
+import javax.faces.context.ExternalContext;
+import javax.faces.context.FacesContext;
 import javax.faces.event.ActionEvent;
 import javax.faces.view.ViewScoped;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;
+import javax.servlet.http.HttpServletRequest;
 
 import br.com.sgc.model.PessoaFisica;
 import br.com.sgc.model.Sexo;
@@ -43,28 +46,19 @@ public class PessoaFisicaBean implements Serializable {
 	}
 	
 	public void insertBean(){
-		EntityManager entityManager = ConnectionJPA.getEntityManager();
-		EntityTransaction transaction = entityManager.getTransaction();
+		EntityManager entityManager = (EntityManager) FacesTool.getRequestAttribute("session");
 		try {
-			transaction.begin();
+			
 			new PessoaFisicaService(new PessoaFisicaRepository(entityManager)).inserService(pessoaFisica);
 			this.pessoaFisica = new PessoaFisica();
 			FacesTool.addMessage_Info("Cadastro Salvo Com Sucesso!");
-			transaction.commit();
 		} catch (Exception e) {
-			transaction.rollback();
 			FacesTool.addMessage_Error(e.getMessage());
-		} finally {
-			entityManager.close();
-		}
+		} 
 	}
 	
 	public void selectAllBean() {
-		EntityManager entityManager = ConnectionJPA.getEntityManager();
-		try {
-			listPessoaFisica = new PessoaFisicaRepository(entityManager).selectAllRepository();
-		} finally {
-			entityManager.close();
-		}
+		EntityManager entityManager = (EntityManager) FacesTool.getRequestAttribute("session");
+		listPessoaFisica = new PessoaFisicaRepository(entityManager).selectAllRepository();
 	}
 }

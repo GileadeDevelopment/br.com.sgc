@@ -2,7 +2,10 @@
 
 import javax.faces.application.FacesMessage;
 import javax.faces.application.FacesMessage.Severity;
+import javax.faces.context.ExternalContext;
 import javax.faces.context.FacesContext;
+import javax.persistence.EntityManager;
+import javax.servlet.http.HttpServletRequest;
 
 public class FacesTool {
 	
@@ -24,5 +27,12 @@ public class FacesTool {
 	
 	public static void addMessage_Fatal(String message) {
 		FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_FATAL,message,message));
+	}
+	
+	public static Object getRequestAttribute(String nome) {
+		FacesContext facesContext = FacesContext.getCurrentInstance();
+		ExternalContext externalContext = facesContext.getExternalContext();
+		HttpServletRequest request = (HttpServletRequest) externalContext.getRequest();
+		return request.getAttribute(nome);
 	}
 }

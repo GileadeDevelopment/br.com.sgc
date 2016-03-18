@@ -14,64 +14,10 @@
 		errorStyle="color: red" infoStyle="color: green"
 		warnStyle="color: orange" fatalStyle="color: gray" />
 
-	<h:form id="formPfisica">
-
-		<h:panelGrid columns="2">
-
-			<f:facet name="header">
-				<h:outputText id="headerform" value="Cadastro Pessoa Física" />
-			</f:facet>
-
-			<!-- NOME -->
-			<h:outputLabel id="labelnome" for="textnome" value="Nome:" />
-			<h:inputText id="textnome" size="60" label="Nome"
-				value="#{PessoaFisicaBean.pessoaFisica.nome}" required="true">
-				<f:validateLength minimum="10" maximum="60" />
-			</h:inputText>
-
-			<!-- CPF -->
-			<h:outputLabel id="labelcpf" for="textcpf" value="CPF:" />
-			<h:inputText id="textcpf" size="30" label="CPF"
-				value="#{PessoaFisicaBean.pessoaFisica.cpf}" required="true">
-				<f:validateLength minimum="14" maximum="14" />
-			</h:inputText>
-
-			<!-- RG -->
-			<h:outputLabel id="labelrg" for="textrg" value="RG:" />
-			<h:inputText id="textrg" size="30" label="RG"
-				value="#{PessoaFisicaBean.pessoaFisica.rg}" required="true" />
-
-			<!-- DATA NASCIMENTO -->
-			<h:outputLabel id="labeldatanasc" for="textdatanasc"
-				value="Data de Nascimento:" />
-			<h:inputText id="textdatanasc" size="30" label="Data de Nascimento"
-				value="#{PessoaFisicaBean.pessoaFisica.dataNascimento}"
-				required="true">
-				<f:convertDateTime pattern="dd/MM/yyyy" timeZone="GMT-03:00"/>
-			</h:inputText>
-
-			<!-- SEXO -->
-			<h:outputLabel id="labelsexo" for="radiosexo" value="Sexo:" />
-			<h:selectOneRadio id="radiosexo" label="Sexo"
-				value="#{PessoaFisicaBean.pessoaFisica.sexo}" required="true">
-				<f:selectItems value="#{PessoaFisicaBean.listSexo}" var="radioSexo"
-					itemLabel="#{radioSexo.sexo}" itemValue="#{radioSexo}" />
-			</h:selectOneRadio>
-
-			<!-- ATIVO -->
-			<h:outputLabel id="labelativo" for="checkBoxativo" value="Ativo" />
-			<h:selectBooleanCheckbox id="checkBoxativo"
-				value="#{PessoaFisicaBean.pessoaFisica.ativo}" />
-		
-			<!-- CADASTRAR  -->
-			<h:outputLabel id="labelcadastrar" for="commandcadastrar"
-				value="Cadastrar:" />
-			<h:commandButton id="commandcadastrar" value="Cadastar"
-				action="#{PessoaFisicaBean.insertBean}"
-				actionListener="#{PessoaFisicaBean.actionListenerGetDataRegister}" />
-
-		</h:panelGrid>
-
+	<h:form id="myFrm" >
+	   <h:inputText id="search" value="#{user.name}"></h:inputText>
+	   <h:commandButton id="btnsearch" action="search.xhtml" style="display: none"></h:commandButton>
+	   <button  type="submit" id="myFrm:btnsearch" name="myFrm:btnsearch"><i class="icon-search"></i></button>
 	</h:form>
 
 </h:body>
