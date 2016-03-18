@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:composite="http://xmlns.jcp.org/jsf/composite">
+
+<h:head>
+	<title> Cadastro Pessoa Jurídica</title>
+</h:head>
+
+<h:body>
+	<h:form id="formPjuridica">
+	
+		<h:messages/>	
+		
+		<h:panelGrid columns="2">
+			<f:facet name="header">
+				<h:outputText id="header_text" value="Cadastro Pessoa Jurídica" />
+			</f:facet>
+
+			<h:outputLabel id="labelrazaosocial" for="textrazaosocial" value="Razão Social:" />
+			<h:inputText id="textrazaosocial" size="60" value="#{PessoaJuridicaBean.pessoaJuridica.nome}" required="true">
+				<f:validateLength minimum="15" maximum="60"/>
+			</h:inputText>
+			
+			<h:outputLabel id="labelnomefantasia" for="textnomefantasia" value="Nome Fantasia:" />
+			<h:inputText id="textnomefantasia" size="60" value="#{PessoaJuridicaBean.pessoaJuridica.nomeFantasia}" required="true">
+				<f:validateLength minimum="15" maximum="60"/>
+			</h:inputText>
+			
+			<h:outputLabel id="labelcnpj" for="textcnpj" value="CNPJ:" />
+			<h:inputText id="textcnpj" size="30" value="#{PessoaJuridicaBean.pessoaJuridica.cnpj}" required="true">
+				<f:validateLength minimum="15" maximum="60" />
+			</h:inputText>
+			
+			<h:outputLabel id="labelie" for="textie" value="Inscrição Estadual:" />
+			<h:inputText id="textie" size="30" value="#{PessoaJuridicaBean.pessoaJuridica.ie}" required="true">
+				<f:validateLength minimum="15" maximum="60" />
+			</h:inputText>
+			
+			<h:outputLabel id="labeldataabertura" for="textdataabertura" value="Data Abertura:" />
+			<h:inputText id="textdataabertura" size="30" value="#{PessoaJuridicaBean.pessoaJuridica.dataAbertura}" required="true">
+				<f:convertDateTime pattern="dd/MM/yyyy"/>
+			</h:inputText>
+		
+			<h:outputLabel id="labelrepresentante" for="textrepresentante" value="Representante:" />
+			<h:inputText id="textrepresentante" size="30" value="Pessoa" required="false"/>
+			
+			<h:outputLabel id="labelcadastrar" for="commandcadastrar" value="Cadastrar:"/>
+			<h:commandButton id="commandcadastrar" value="Cadastar" action="#{PessoaJuridicaBean.cadastrar}" actionListener="#{PessoaJuridicaBean.actionListenerGetDataRegister}" />
+			
+		</h:panelGrid>
+	</h:form>
+</h:body>
+
+</html>

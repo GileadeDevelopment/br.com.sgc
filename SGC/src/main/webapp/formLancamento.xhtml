@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:composite="http://xmlns.jcp.org/jsf/composite">
+
+<f:metadata>
+	<f:viewAction action="#{LancamentoBean.selectAllPessoa}"></f:viewAction>
+</f:metadata>
+
+<h:head>
+	<title>Lancamento</title>
+
+	<h:outputStylesheet library="bootstrap/css" name="bootstrap.min.css" />
+	<h:outputStylesheet library="bootstrap/css"
+		name="bootstrap-theme.min.css" />
+
+	<h:outputScript library="bootstrap/js" name="bootstrap.min.js" />
+</h:head>
+
+<h:body>
+
+
+
+	<h:messages showDetail="true" showSummary="true"
+		errorClass="alert alert-danger" errorStyle="overflow:hidden" infoClass="alert alert-success" infoStyle="overflow:hidden" />
+
+	<h:form id="formlancamento">
+
+		<h:panelGrid columns="2">
+			<f:facet name="header">
+				<h:outputText id="headerform" value="Cadastra Lançamento" />
+			</f:facet>
+
+			<!-- Tipo Lancamento -->
+			<h:outputLabel id="labeltipolancamento" for="radiotipolancamento"
+				value="Tipo de Lançamento:" />
+			<h:selectOneRadio id="radiotipolancamento" label="Tipo de Lançamento"
+				value="#{LancamentoBean.lancamento.tipoLancamento}" required="true">
+				<f:selectItems value="#{LancamentoBean.listTipoLancamento}"
+					var="radioTipoLancamento"
+					itemLabel="#{radioTipoLancamento.tipoLancamento}"
+					itemValue="#{radioTipoLancamento}" />
+			</h:selectOneRadio>
+
+			<!-- Pessoa -->
+			<h:outputLabel id="labelpessoa" for="listboxpessoa" value="Pessoa:" />
+			<h:selectOneMenu id="listboxpessoa" label="Pessoa"
+				value="#{LancamentoBean.lancamento.pessoa}" required="true">
+				<f:selectItems value="#{LancamentoBean.listPessoFisica}"
+					var="listboxpessoa" itemLabel="#{listboxpessoa.nome}"
+					itemValue="#{listboxpessoa}" />
+				<f:selectItem itemLabel="Selecione" noSelectionOption="true" />
+			</h:selectOneMenu>
+
+			<!-- Descrição -->
+			<h:outputLabel id="labeldiscricao" for="textdescricao"
+				value="Descrição:" />
+			<h:inputText id="textdescricao" label="Descrição" size="60"
+				value="#{LancamentoBean.lancamento.descricao}" required="true" />
+
+			<!-- Valor -->
+			<h:outputLabel id="labelvalor" for="textvalor" value="Valor R$:" />
+			<h:inputText id="textvalor" label="Valor" size="10"
+				value="#{LancamentoBean.lancamento.valor}" required="true">
+				<f:convertNumber locale="pt_BR" maxFractionDigits="2"
+					minFractionDigits="2" />
+			</h:inputText>
+
+			<h:outputLabel id="labeldatavencimento" for="textdatavencimento"
+				value="Data de Vencimento:" />
+			<h:inputText id="textdatavencimento" labe="Data de Vencimento"
+				size="10" value="#{LancamentoBean.lancamento.dataVencimento}"
+				required="true">
+				<f:convertDateTime pattern="dd/MM/yyyy" timeZone="GMT-03:00" />
+			</h:inputText>
+
+			<h:outputLabel id="labelpago" for="checkboxpago" value="Pago:" />
+			<h:selectBooleanCheckbox id="checkBoxpago"
+				value="#{LancamentoBean.lancamento.pago}" immediate="true"
+				valueChangeListener="#{LancamentoBean.valueChangeListenerSetPago}"
+				onchange="submit();" />
+
+			<h:outputLabel id="labeldatapagamento" for="textdatapagamento"
+				value="Data de Pagamento:"
+				rendered="#{LancamentoBean.lancamento.pago}" />
+			<h:inputText id="textdatapagamento" labe="Data de Pagamento"
+				size="10" value="#{LancamentoBean.lancamento.dataPagamento}"
+				required="false" rendered="#{LancamentoBean.lancamento.pago}">
+				<f:convertDateTime pattern="dd/MM/yyyy" timeZone="GMT-03:00" />
+				<f:validator validatorId="RequiredConditional" />
+				<f:attribute name="checkBoxpago"
+					value="#{LancamentoBean.lancamento.pago}" />
+			</h:inputText>
+
+			<h:outputLabel id="labelurl" for="texturl" value="URL:" />
+			<h:inputText id="texturl" label="URL" size="60"
+				value="#{LancamentoBean.lancamento.url}" required="true" />
+
+			<h:outputLabel />
+			<h:commandButton id="commandsalvar" value="Salvar"
+				action="#{LancamentoBean.insertBean}"
+				actionListener="#{LancamentoBean.actionListenerGetDataRegister}" />
+		</h:panelGrid>
+	</h:form>
+</h:body>
+
+</html>
