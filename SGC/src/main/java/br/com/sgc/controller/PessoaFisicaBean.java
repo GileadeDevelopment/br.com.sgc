@@ -45,17 +45,16 @@ public class PessoaFisicaBean implements Serializable {
 		this.pessoaFisica.setDataCadastro(GetDateRegister.getDateRegister());		
 	}
 	
-	public void insertBean(){
+	public void insertBean() {
 		EntityManager entityManager = (EntityManager) FacesTool.getRequestAttribute("session");
 		try {
-			
 			new PessoaFisicaService(new PessoaFisicaRepository(entityManager)).inserService(pessoaFisica);
 			this.pessoaFisica = new PessoaFisica();
 			FacesTool.addMessage_Info("Cadastro Salvo Com Sucesso!");
 		} catch (Exception e) {
 			FacesTool.addMessage_Error(e.getMessage());
-		} 
-	}
+		}
+	} 
 	
 	public void selectAllBean() {
 		EntityManager entityManager = (EntityManager) FacesTool.getRequestAttribute("session");
