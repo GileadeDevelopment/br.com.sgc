@@ -20,7 +20,7 @@ public class PessoaFisicaService implements Serializable {
 		if (pessoaFisicaDuplicadaService(pessoaFisica)) {
 			throw new BusinessException("Já Existe Pessoa Cadastrada.");
 		}
-
+		
 		else if (pessoaFisica.getDataNascimento() != null && pessoaFisica.getDataNascimento().after(new Date())) {
 			throw new BusinessException("Data de nascimento não pode ser uma data futura.");
 		}

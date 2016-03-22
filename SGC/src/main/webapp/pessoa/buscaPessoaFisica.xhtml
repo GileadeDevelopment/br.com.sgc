@@ -73,12 +73,16 @@
 							<h:outputText value="Ações" />
 						</f:facet>
 
-						
+						<!--  
 						<h:button id="buttonvisualizar" value="Visualizar"
 						class="btn btn-info btn-sm" />
-						<h:button id="buttoneditar" value="Editar"
-						class="btn btn-warning btn-sm" />
-						
+						-->
+
+						<h:link id="buttoneditar" value="Editar" outcome="pessoaFisicaEditar" 
+							class="btn btn-warning btn-sm">
+							<f:param name="id" value="#{pessoa.id}" />
+						</h:link>
+
 
 						<h:commandButton id="buttonexcluir" value="Excluir"
 							action="#{LancamentoBean.deleteBean}"

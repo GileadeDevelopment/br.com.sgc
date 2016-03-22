@@ -4,19 +4,13 @@ import java.io.Serializable;
 import java.util.List;
 
 import javax.faces.bean.ManagedBean;
-import javax.faces.context.ExternalContext;
-import javax.faces.context.FacesContext;
 import javax.faces.event.ActionEvent;
 import javax.faces.view.ViewScoped;
 import javax.persistence.EntityManager;
-import javax.persistence.EntityTransaction;
-import javax.servlet.http.HttpServletRequest;
-
 import br.com.sgc.model.PessoaFisica;
 import br.com.sgc.model.Sexo;
 import br.com.sgc.repository.PessoaFisicaRepository;
 import br.com.sgc.service.PessoaFisicaService;
-import br.com.sgc.tool.ConnectionJPA;
 import br.com.sgc.tool.FacesTool;
 import br.com.sgc.tool.GetDateRegister;
 
@@ -33,6 +27,10 @@ public class PessoaFisicaBean implements Serializable {
 		return pessoaFisica;
 	}
 	
+	public void setPessoaFisica(PessoaFisica pessoaFisica) {
+		this.pessoaFisica = pessoaFisica;
+	}
+
 	public List<PessoaFisica> getListPessoaFisica() {
 		return listPessoaFisica;
 	}
