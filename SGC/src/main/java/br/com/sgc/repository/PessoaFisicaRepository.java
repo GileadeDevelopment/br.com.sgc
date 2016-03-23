@@ -23,6 +23,10 @@ public class PessoaFisicaRepository implements Serializable {
 	public void insertRepository(PessoaFisica pessoaFisica) {
 		this.entityManager.persist(pessoaFisica);
 	}
+	
+	public void editarRepository(PessoaFisica pessoaFisica) {
+		this.entityManager.merge(pessoaFisica);
+	}
 
 	public PessoaFisica selectIdRepository(Long id) {
 		return entityManager.find(PessoaFisica.class, id);

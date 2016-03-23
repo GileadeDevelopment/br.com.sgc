@@ -18,7 +18,7 @@ import org.hibernate.annotations.Type;
 @Entity
 @Table(name = "pessoa")
 @Inheritance(strategy = InheritanceType.JOINED)
-public abstract class Pessoa implements Serializable {
+public abstract class Pessoa implements Serializable, Cloneable {
 
 	private static final long serialVersionUID = 1L;
 
@@ -89,5 +89,9 @@ public abstract class Pessoa implements Serializable {
 		} else if (!id.equals(other.id))
 			return false;
 		return true;
+	}
+	@Override
+	public Object clone() throws CloneNotSupportedException {
+		return super.clone();
 	}
 }

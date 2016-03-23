@@ -12,18 +12,12 @@
 
 	<!-- Define Main -->
 	<ui:define name="main">
-	
-		<!--  
-		<f:metadata>
-			<f:viewAction action="#{}"></f:viewAction>
-		</f:metadata>
-		-->
-		
+
 		<h:messages showDetail="true" showSummary="true"
 			errorClass="alert alert-danger" errorStyle="overflow:hidden"
 			infoClass="alert alert-success" infoStyle="overflow:hidden" />
 			
-			<h:form id="formpessoa" styleClass="form-horizontal" role="form">
+		<h:form id="formpessoa" styleClass="form-horizontal" role="form">
 
 			<div id="divnome" class="form-group">
 
@@ -38,7 +32,7 @@
 						
 						<f:validateLength minimum="10" maximum="60" />
 						
-						</h:inputText>
+					</h:inputText>
 
 				</div>
 			</div>
@@ -56,7 +50,7 @@
 						
 						<f:validateLength minimum="14" maximum="14" />
 						
-						</h:inputText>
+					</h:inputText>
 
 				</div>
 			</div>
@@ -74,7 +68,7 @@
 						
 						<f:validateLength minimum="10" maximum="14" />
 						
-						</h:inputText>
+					</h:inputText>
 
 				</div>
 			</div>
@@ -92,7 +86,7 @@
 						
 						<f:convertDateTime pattern="dd/MM/yyyy" timeZone="GMT-03:00" />
 						
-						</h:inputText>
+					</h:inputText>
 
 				</div>
 			</div>

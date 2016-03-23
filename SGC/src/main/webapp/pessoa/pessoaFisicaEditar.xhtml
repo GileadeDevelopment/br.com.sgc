@@ -7,22 +7,21 @@
 
 	<!-- Define Title -->
 	<ui:define name="title">
-		Cadastro de Pessoa Física
+		Editar de Pessoa Física
 	</ui:define>
 
 	<!-- Define Main -->
 	<ui:define name="main">
 	
-		
 		<f:metadata>
 			<f:viewParam name="id" value="#{PessoaFisicaBean.pessoaFisica}"/>
 		</f:metadata>
-		
+
 		<h:messages showDetail="true" showSummary="true"
 			errorClass="alert alert-danger" errorStyle="overflow:hidden"
 			infoClass="alert alert-success" infoStyle="overflow:hidden" />
-			
-			<h:form id="formpessoa" styleClass="form-horizontal" role="form">
+
+		<h:form id="formpessoa" styleClass="form-horizontal" role="form">
 
 			<div id="divnome" class="form-group">
 
@@ -136,8 +135,8 @@
 				<h:outputLabel styleClass="control-label col-md-2 col-md-offset-2" />
 
 				<div id="divbuttons" class="col-md-4">
-					<h:commandButton id="commandsalvar" value="Salvar"
-						action="#{PessoaFisicaBean.insertBean}"
+					<h:commandButton id="commandeditar" value="Editar"
+						action="#{PessoaFisicaBean.editarBean}"
 						actionListener="#{PessoaFisicaBean.actionListenerGetDataRegister}"
 						class="btn btn-primary btn-sm" />
 						

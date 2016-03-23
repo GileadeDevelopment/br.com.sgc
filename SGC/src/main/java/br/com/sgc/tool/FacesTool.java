@@ -4,7 +4,6 @@ import javax.faces.application.FacesMessage;
 import javax.faces.application.FacesMessage.Severity;
 import javax.faces.context.ExternalContext;
 import javax.faces.context.FacesContext;
-import javax.persistence.EntityManager;
 import javax.servlet.http.HttpServletRequest;
 
 public class FacesTool {
@@ -36,3 +35,7 @@ public class FacesTool {
 		return request.getAttribute(nome);
 	}
 }
+/*
+ * Author: Gileade de Jesus
+ * Status: Unfinished
+ */
