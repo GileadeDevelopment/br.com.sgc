@@ -33,13 +33,12 @@ public class PessoaFisicaBean implements Serializable {
 		return pessoaFisica;
 	}
 	
-	public void setPessoaFisica(PessoaFisica pessoaFisica) throws CloneNotSupportedException {
+	public void setPessoaFisica(PessoaFisica pessoaFisica)/* throws CloneNotSupportedException */{
 		this.pessoaFisica = pessoaFisica;
+		
 		 if(this.pessoaFisica == null){
-			 pessoaFisica = new PessoaFisica();
-		 }
-		 else{
-			 this.pessoaFisica = (PessoaFisica)pessoaFisica.clone();
+			 System.out.println("objeto null creando novo objeto");
+			 this.pessoaFisica = new PessoaFisica();
 		 }
 	}
 
@@ -98,4 +97,5 @@ public class PessoaFisicaBean implements Serializable {
 		EntityManager entityManager = (EntityManager) FacesTool.getRequestAttribute("session");
 		listPessoaFisica = new PessoaFisicaRepository(entityManager).selectAllRepository();
 	}
+	
 }
