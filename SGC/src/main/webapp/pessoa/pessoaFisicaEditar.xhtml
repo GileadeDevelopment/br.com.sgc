@@ -135,9 +135,13 @@
 				<h:outputLabel styleClass="control-label col-md-2 col-md-offset-2" />
 
 				<div id="divbuttons" class="col-md-4">
-					<h:commandButton id="commandeditar" value="Editar"
+					<h:commandButton id="commandeditar" 
 						action="#{PessoaFisicaBean.editarBean}"
-						class="btn btn-primary btn-sm" />
+						actionListener="#{PessoaFisicaBean.actionListenerGetDataRegister}" >
+						
+						<i class="glyphicon glyphicon-edit"></i>
+					
+					</h:commandButton>
 						
 					<h:button id="buttoncancelar" value="Cancelar" outcome="pessoaFisica"
 						class="btn btn-default btn-sm" />
