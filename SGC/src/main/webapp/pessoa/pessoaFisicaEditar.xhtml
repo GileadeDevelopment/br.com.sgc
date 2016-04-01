@@ -12,9 +12,9 @@
 
 	<!-- Define Main -->
 	<ui:define name="main">
-	
+
 		<f:metadata>
-			<f:viewParam name="id" value="#{PessoaFisicaBean.pessoaFisica}"/>
+			<f:viewParam name="id" value="#{PessoaFisicaBean.pessoaFisica}" />
 		</f:metadata>
 
 		<h:messages showDetail="true" showSummary="true"
@@ -33,10 +33,10 @@
 					<h:inputText id="inputnome" label="Nome" size="60"
 						value="#{PessoaFisicaBean.pessoaFisica.nome}" required="true"
 						styleClass="form-control">
-						
+
 						<f:validateLength minimum="10" maximum="60" />
-						
-						</h:inputText>
+
+					</h:inputText>
 
 				</div>
 			</div>
@@ -50,11 +50,11 @@
 
 					<h:inputText id="inputcpf" label="CPF" size="10"
 						value="#{PessoaFisicaBean.pessoaFisica.cpf}" required="true"
-						styleClass="form-control" >
-						
+						styleClass="form-control">
+
 						<f:validateLength minimum="14" maximum="14" />
-						
-						</h:inputText>
+
+					</h:inputText>
 
 				</div>
 			</div>
@@ -68,33 +68,34 @@
 
 					<h:inputText id="inputrg" label="RG" size="10"
 						value="#{PessoaFisicaBean.pessoaFisica.rg}" required="true"
-						styleClass="form-control" >
-						
+						styleClass="form-control">
+
 						<f:validateLength minimum="10" maximum="14" />
-						
-						</h:inputText>
+
+					</h:inputText>
 
 				</div>
 			</div>
-			
+
 			<div id="divdatanascimento" class="form-group">
 
-				<h:outputLabel id="labelnascimento" for="inputdatanascimento" value="Data de Nascimento:"
+				<h:outputLabel id="labelnascimento" for="inputdatanascimento"
+					value="Data de Nascimento:"
 					styleClass="control-label col-md-2 col-md-offset-2" />
 
 				<div id="divinputdatanascimento" class="col-md-4">
 
-					<h:inputText id="inputdatanascimento" label="Data de Nascimento" size="10"
-						value="#{PessoaFisicaBean.pessoaFisica.dataNascimento}" required="true"
-						styleClass="form-control" >
-						
+					<h:inputText id="inputdatanascimento" label="Data de Nascimento"
+						size="10" value="#{PessoaFisicaBean.pessoaFisica.dataNascimento}"
+						required="true" styleClass="form-control">
+
 						<f:convertDateTime pattern="dd/MM/yyyy" timeZone="GMT-03:00" />
-						
-						</h:inputText>
+
+					</h:inputText>
 
 				</div>
 			</div>
-			
+
 			<div id="divsexo" class="form-group">
 
 				<h:outputLabel id="labelsexo" for="divradiosexo" value="Sexo:"
@@ -102,18 +103,16 @@
 
 				<div id="divradiosexo" class="col-md-8">
 
-					<h:selectOneRadio id="divradiosexo"
-						label="Sexo"
-						value="#{PessoaFisicaBean.pessoaFisica.sexo}"
-						required="true" styleClass="radio-inline">
+					<h:selectOneRadio id="divradiosexo" label="Sexo"
+						value="#{PessoaFisicaBean.pessoaFisica.sexo}" required="true"
+						styleClass="inlineRadioButtons">
 
 						<f:selectItems value="#{PessoaFisicaBean.listSexo}"
-							var="radioSexo"
-							itemLabel="#{radioSexo.sexo}"
+							var="radioSexo" itemLabel="#{radioSexo.sexo}"
 							itemValue="#{radioSexo}" />
 
 					</h:selectOneRadio>
-					
+
 				</div>
 			</div>
 
@@ -121,35 +120,38 @@
 
 				<h:outputLabel id="labelativo" for="checkBoxativo" value="Ativo:"
 					styleClass="control-label col-md-2 col-md-offset-2" />
-				
+
 				<div id="divradiosexo" class="col-md-8">
-										
+
 					<h:selectBooleanCheckbox id="checkBoxativo"
-						value="#{PessoaFisicaBean.pessoaFisica.ativo}" styleClass="checkbox" />
-				
+						value="#{PessoaFisicaBean.pessoaFisica.ativo}"
+						styleClass="checkbox" />
+
 				</div>
 			</div>
-			
+
 			<div id="divbutton" class="form-group">
 
 				<h:outputLabel styleClass="control-label col-md-2 col-md-offset-2" />
 
 				<div id="divbuttons" class="col-md-4">
-					<h:commandButton id="commandeditar" 
+					<h:commandLink id="commandeditar" value="Salvar"
 						action="#{PessoaFisicaBean.editarBean}"
-						actionListener="#{PessoaFisicaBean.actionListenerGetDataRegister}" >
-						
-						<i class="glyphicon glyphicon-edit"></i>
-					
-					</h:commandButton>
-						
-					<h:button id="buttoncancelar" value="Cancelar" outcome="pessoaFisica"
-						class="btn btn-default btn-sm" />
+						actionListener="#{PessoaFisicaBean.actionListenerGetDataRegister}"
+						styleClass="btn btn-primary">
+						<span class="glyphicon glyphicon-ok" />
+					</h:commandLink>
+
+					<h:link id="buttoncancelar" value="Cancelar"
+						outcome = "pessoaFisica"
+						class="btn btn-default">
+						<i class="glyphicon glyphicon-remove" />
+					</h:link>
 				</div>
-			</div>
+			</div>		
 
 		</h:form>
-		
+
 	</ui:define>
-	
+
 </ui:composition>
