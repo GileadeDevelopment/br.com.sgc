@@ -31,30 +31,66 @@
 				<h:outputLabel id="labelativo" for="checkBoxativo" value="Ativo:"
 					styleClass="control-label col-md-2 col-md-offset-2" />
 
-				<div id="divradiosexo" class="col-md-8">
+				<div id="divcheckboxativo" class="col-md-8">
 
 					<h:selectBooleanCheckbox id="checkBoxativo"
 						value="#{PessoaFisicaBean.pessoaFisica.ativo}"
-						styleClass="checkbox" data-toggle="toggle"  
-						/>
+						styleClass="checkbox">
+						<f:passThroughAttribute name="data-toggle" value="toggle" />
+						<f:passThroughAttribute name="data-onstyle" value="success" />
+						<f:passThroughAttribute name="data-offstyle" value="danger" />
+						<f:passThroughAttribute name="data-width" value="60" />
+						<f:passThroughAttribute name="data-height" value="30" />
+					</h:selectBooleanCheckbox>
 
 				</div>
 			</div>
-			data-onstyle="success"
-						data-offstyle="danger" data-width="60" data-height="30" 
-			
-			<br/>
-			<br/>
-			
+
+			<br />
+			<br />
+
 			<div id="divativo2" class="frm-group">
-			
+
 				<h:outputLabel id="labelativo2" for="checkBoxativo" value="Ativo:"
 					styleClass="control-label col-md-2 col-md-offset-2" />
-					
+
 				<label> <input type="checkbox" data-toggle="toggle"
 					data-onstyle="success" data-offstyle="danger" data-width="60"
-					data-height="30"/> 
+					data-height="30" />
 				</label>
+			</div>
+
+			<div id="divsexo" class="form-group">
+
+				<h:outputLabel id="labelsexo" for="divradiosexo" value="Sexo:"
+					styleClass="control-label col-md-2 col-md-offset-2" />
+
+				<div id="divradiosexo" class="col-md-8">
+
+					<h:selectOneRadio id="divradiosexo" label="Sexo"
+						value="#{PessoaFisicaBean.pessoaFisica.sexo}" required="true"
+						styleClass="inlineRadioButtons">
+
+						<f:selectItems value="#{PessoaFisicaBean.listSexo}"
+							var="radioSexo" itemLabel="#{radioSexo.sexo}"
+							itemValue="#{radioSexo}" />
+
+					</h:selectOneRadio>
+
+					<div class="btn-group" data-toggle="buttons">
+						<label class="btn btn-primary active"> 
+							<input type="radio" name="options" id="option1" checked = "checked" >value="OP1"</input> 
+						</label> 
+						
+						<label class="btn btn-primary"> 
+							<input type="radio" name="options" id="option2" >value="OP2"</input>
+						</label> 
+						<label class="btn btn-primary"> 
+							<input type="radio" name="options" id="option3" >value="OP3"</input> 
+						</label>
+					</div>
+
+				</div>
 			</div>
 
 		</h:form>

@@ -116,16 +116,24 @@
 				</div>
 			</div>
 
-			<div id="divsexo" class="form-group">
+			<div id="divativo" class="form-group">
 
 				<h:outputLabel id="labelativo" for="checkBoxativo" value="Ativo:"
 					styleClass="control-label col-md-2 col-md-offset-2" />
 
-				<div id="divradiosexo" class="col-md-8">
+				<div id="divcheckboxativo" class="col-md-8">
 
 					<h:selectBooleanCheckbox id="checkBoxativo"
 						value="#{PessoaFisicaBean.pessoaFisica.ativo}"
-						styleClass="checkbox" />
+						styleClass="checkbox" >
+						 <f:passThroughAttribute name="data-toggle" value="toggle" />
+						 <f:passThroughAttribute name="data-onstyle" value="success" />
+						 <f:passThroughAttribute name="data-offstyle" value="danger" />
+						 <f:passThroughAttribute name="data-width" value="70" />
+						 <f:passThroughAttribute name="data-height" value="30" />
+						 <f:passThroughAttribute name="data-on" value="Ativo"/>
+						 <f:passThroughAttribute name="data-off" value="Inativo"/>
+					</h:selectBooleanCheckbox>
 
 				</div>
 			</div>
