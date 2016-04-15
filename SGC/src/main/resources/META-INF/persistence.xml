@@ -12,7 +12,7 @@
 		<properties>
 			
 			<!-- -->
-			<property name="javax.persistence.jdbc.url" value="jdbc:mysql://10.2.0.101/sgc" />
+			<property name="javax.persistence.jdbc.url" value="jdbc:mysql://10.2.1.15/sgc" />
 			
 			 
 			<!-- 

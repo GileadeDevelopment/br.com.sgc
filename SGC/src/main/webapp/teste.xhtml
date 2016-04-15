@@ -5,105 +5,153 @@
 	xmlns:h="http://xmlns.jcp.org/jsf/html"
 	xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
 
-	<!-- 
-	Important:
-		Remove tags <ui:define> unused
- 	-->
-
 	<!-- Define Title -->
 	<ui:define name="title">
-		TESTE
+		Cadastro de Pessoa Física
 	</ui:define>
-
-	<!-- Define Header 
-	<ui:define name="header">
-
-	</ui:define>
-	-->
 
 	<!-- Define Main -->
 	<ui:define name="main">
 
-		<h:form>
+		<h:messages showDetail="true" showSummary="true"
+			errorClass="alert alert-danger" errorStyle="overflow:hidden"
+			infoClass="alert alert-success" infoStyle="overflow:hidden" />
+			
+		<h:form id="formpessoa" styleClass="form-horizontal" role="form">
 
-			<div id="divativo" class="form-group">
+			<div id="divnome" class="form-group">
 
-				<h:outputLabel id="labelativo" for="checkBoxativo" value="Ativo:"
+				<h:outputLabel id="labelnome" for="inputnome" value="Nome:"
 					styleClass="control-label col-md-2 col-md-offset-2" />
 
-				<div id="divcheckboxativo" class="col-md-8">
+				<div id="divinputnome" class="col-md-4">
 
-					<h:selectBooleanCheckbox id="checkBoxativo"
-						value="#{PessoaFisicaBean.pessoaFisica.ativo}"
-						styleClass="checkbox">
-						<f:passThroughAttribute name="data-toggle" value="toggle" />
-						<f:passThroughAttribute name="data-onstyle" value="success" />
-						<f:passThroughAttribute name="data-offstyle" value="danger" />
-						<f:passThroughAttribute name="data-width" value="60" />
-						<f:passThroughAttribute name="data-height" value="30" />
-					</h:selectBooleanCheckbox>
+					<h:inputText id="inputnome" label="Nome" size="60"
+						value="#{PessoaFisicaBean.pessoaFisica.nome}" required="true"
+						styleClass="form-control">
+						
+						<f:validateLength minimum="10" maximum="60" />
+						
+					</h:inputText>
 
 				</div>
 			</div>
 
+			<div id="divcpf" class="form-group">
 
+				<h:outputLabel id="labelcpf" for="inputcpf" value="CPF:"
+					styleClass="control-label col-md-2 col-md-offset-2" />
+
+				<div id="divinputcpf" class="col-md-4">
+
+					<h:inputText id="inputcpf" label="CPF" size="10"
+						value="#{PessoaFisicaBean.pessoaFisica.cpf}" required="true"
+						styleClass="form-control cpf" >
+						
+						<f:validateLength minimum="14" maximum="14" />
+						
+					</h:inputText>
+
+				</div>
+			</div>
+
+			<div id="divrg" class="form-group">
+
+				<h:outputLabel id="labelrg" for="inputcpf" value="RG:"
+					styleClass="control-label col-md-2 col-md-offset-2" />
+
+				<div id="divinputrg" class="col-md-4">
+
+					<h:inputText id="inputrg" label="RG" size="10"
+						value="#{PessoaFisicaBean.pessoaFisica.rg}" required="true"
+						styleClass="form-control" >
+						
+						<f:validateLength minimum="10" maximum="14" />
+						
+					</h:inputText>
+
+				</div>
+			</div>
+						
+				<div id="divdatanascimento2" class="form-group">
+
+				<h:outputLabel id="labelnascimento2" for="inputdatanascimento" value="Data de Nascimento:"
+					styleClass="control-label col-md-2 col-md-offset-2" />
+
+				<div id="divinputdatanascimento2" class="col-md-4">
+
+					<h:inputText id="inputdatanascimento2" label="Data de Nascimento" size="10"
+						value="#{PessoaFisicaBean.pessoaFisica.dataNascimento}" required="true"
+						styleClass="form-control datepicker">
+						
+						<f:convertDateTime pattern="dd/MM/yyyy" timeZone="GMT-03:00" />
+						
+					</h:inputText>
+					
+				</div>
+			</div>
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
 			<div id="divsexo" class="form-group">
 
 				<h:outputLabel id="labelsexo" for="divradiosexo" value="Sexo:"
 					styleClass="control-label col-md-2 col-md-offset-2" />
 
-				<div id="divradiosexo" class="col-md-8 btn-group"
-					data-toggle="button">
+				<div id="divradiosexo" class="col-md-8">
 
-					<h:selectOneRadio id="divradiosexo" label="Sexo"
-						value="#{PessoaFisicaBean.pessoaFisica.sexo}" required="true"
-						styleClass="inlineRadioButtons btn btn-primary">
+					<h:selectOneRadio id="divradiosexo"
+						label="Sexo"
+						value="#{PessoaFisicaBean.pessoaFisica.sexo}"
+						required="true" styleClass="radio-inline">
 
 						<f:selectItems value="#{PessoaFisicaBean.listSexo}"
-							var="radioSexo" itemLabel="#{radioSexo.sexo}"
+							var="radioSexo"
+							itemLabel="#{radioSexo.sexo}"
 							itemValue="#{radioSexo}" />
 
-						<f:passThroughAttribute name="data-toggle" value="button" />
-
-
-
 					</h:selectOneRadio>
-					<br /> <br />
-					<div class="btn-group" data-toggle="buttons">
-						<label class="btn btn-primary active"> <input type="radio"
-							name="options" id="option1" checked="checked">value="OP1"</input>
-						</label> <label class="btn btn-primary"> <input type="radio"
-							name="options" id="option2">value="OP2"</input>
-						</label> <label class="btn btn-primary"> <input type="radio"
-							name="options" id="option3">value="OP3"</input>
-						</label>
-					</div>
-
+					
 				</div>
 			</div>
 
-			<h:selectOneRadio id="yesNoMaybeOne" value="#{PessoaFisicaBean.pessoaFisica.sexo}">
-			
-				<ul class="button-group toggle" data-toggle="buttons-radio">
-					<ui:repeat value="#{PessoaFisicaBean.listSexo}" var="ynmt"
-						varStatus="item">
-						<li><input type="radio" id="ynmtv#{item.index}"
-							name="ynmtype-group" data-toggle="button">
-							<label class="button small" for="ynmtv#{item.index}"></label>
-							</input></li>
-					</ui:repeat>
-				</ul>
-			</h:selectOneRadio>
+			<div id="divsexo" class="form-group">
 
+				<h:outputLabel id="labelativo" for="checkBoxativo" value="Ativo:"
+					styleClass="control-label col-md-2 col-md-offset-2" />
+				
+				<div id="divradiosexo" class="col-md-8">
+										
+					<h:selectBooleanCheckbox id="checkBoxativo"
+						value="#{PessoaFisicaBean.pessoaFisica.ativo}" styleClass="checkbox" />
+				
+				</div>
+			</div>
+			
+			<div id="divbutton" class="form-group">
+
+				<h:outputLabel styleClass="control-label col-md-2 col-md-offset-2" />
+
+				<div id="divbuttons" class="col-md-4">
+					<h:commandButton id="commandsalvar" value="Salvar"
+						action="#{PessoaFisicaBean.insertBean}"
+						actionListener="#{PessoaFisicaBean.actionListenerGetDataRegister}"
+						class="btn btn-primary btn-sm" />
+						
+					<h:button id="buttoncancelar" value="Cancelar" outcome="teste.xhtml"
+						class="btn btn-default btn-sm" />
+				</div>
+			</div>
 
 		</h:form>
 
 	</ui:define>
-
-	<!-- Define Footer 
-	<ui:define name="footer">
-
-	</ui:define>
-	-->
-
+	
 </ui:composition>
