@@ -46,7 +46,7 @@
 
 					<h:inputText id="inputcpf" label="CPF" size="10"
 						value="#{PessoaFisicaBean.pessoaFisica.cpf}" required="true"
-						styleClass="form-control cpf" >
+						styleClass="form-control" >
 						
 						<f:validateLength minimum="14" maximum="14" />
 						
@@ -151,6 +151,13 @@
 			</div>
 
 		</h:form>
+		
+		<script>
+		$(document).ready(function(){
+			 $('.formpessoa\\:inputcpf').mask('000.000.000-00', {reverse: true});
+		});
+		</script>
+
 
 	</ui:define>
 	

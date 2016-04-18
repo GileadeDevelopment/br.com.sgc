@@ -13,24 +13,47 @@
 			<ui:insert name="title">Sistema Gestão Condominial</ui:insert>
 		</title>
 		
-		<h:outputStylesheet library="bootstrap/css" name="bootstrap.min.modify.css" />
-		<h:outputStylesheet library="bootstrap/css" name="bootstrap-theme.min.css" />
-	
+		<!-- bootstrap -->
+			<!-- css -->
+			<h:outputStylesheet library="bootstrap/css" name="bootstrap.min.modify.css" />
+			<h:outputStylesheet library="bootstrap/css" name="bootstrap-theme.min.css" />
+		
+			<!-- js -->	
+			<h:outputScript library="bootstrap/js" name="bootstrap.min.js" />
+			
+		<!-- jquery -->
 		<h:outputScript library="jquery" name="jquery-2.2.1.min.js" />
-		<h:outputScript library="bootstrap/js" name="bootstrap.min.js" />
 		
-		<!-- toggle -->
-		<h:outputStylesheet library="bootstrap-toggle/css" name="bootstrap2-toggle.min.css"  />
-		<h:outputScript library="bootstrap-toggle/js" name="bootstrap2-toggle.min.js"  />
+		<!-- bootstrap-toggle -->
+			<!-- css -->
+			<h:outputStylesheet library="bootstrap-toggle/css" name="bootstrap2-toggle.min.css" />
+			
+			<!-- js -->	
+			<h:outputScript library="bootstrap-toggle/js" name="bootstrap2-toggle.min.js" />
 		
-		<!-- datepicker -->	
-		<h:outputStylesheet library="bootstrap-datepicker/css" name="bootstrap-datepicker.css"  />
-		<h:outputScript library="bootstrap-datepicker/js" name="bootstrap-datepicker.js"  />
+		<!-- bootstrap-datepicker -->	
+			<!-- css -->
+			<h:outputStylesheet library="bootstrap-datepicker/css" name="bootstrap-datepicker.css" />
+			
+			<!-- js -->
+			<h:outputScript library="bootstrap-datepicker/js" name="bootstrap-datepicker.js"  />
 
 		<!-- My -->	
-		<h:outputStylesheet library="css" name="css.css"  />
-		<h:outputScript library="js" name="js.js"  />
-
+			<!-- css -->
+			<h:outputStylesheet library="my/css" name="css.css"  />
+			
+			<!-- js -->
+			<h:outputScript library="my/js" name="js.js"  />
+			
+			
+		<!-- teste -->
+			<!-- DataTables -->
+				<!-- css -->
+				<h:outputStylesheet library="teste/DataTables/css" name="dataTables.bootstrap.min.css"  />
+			
+				<!-- js -->
+				<h:outputScript library="teste/DataTables/js" name="jquery.dataTables.min.js"  />
+				<h:outputScript library="teste/DataTables/js" name="dataTables.bootstrap.min.js"  />
 
 	</h:head>
 	

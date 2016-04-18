@@ -3,6 +3,8 @@ $(document).ready(function(){
 		format: "dd/mm/yyyy",
         language: "pt-BR"
     });
-	
-	$('.form-control').mask("999.999.999-99");
 });
+
+$(document).ready(function() {
+    $('.table').DataTable();
+} );
