@@ -70,7 +70,8 @@ public class PessoaFisicaService implements Serializable {
 	 *	Method  - 
 	 *	Responsibility - 
 	 */
-	public void deleteService(PessoaFisicaRepository fisicaRepository) throws BusinessException {
+	public void deleteService(PessoaFisica pessoaFisica) throws BusinessException {
+		this.pessoaFisicaRepository.deleteRopository(pessoaFisica);
 
 	}
 

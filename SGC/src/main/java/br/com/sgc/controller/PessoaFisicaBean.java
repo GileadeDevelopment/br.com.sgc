@@ -33,7 +33,7 @@ public class PessoaFisicaBean implements Serializable {
 		return pessoaFisica;
 	}
 	
-	public void setPessoaFisica(PessoaFisica pessoaFisica)/* throws CloneNotSupportedException */{
+	public void setPessoaFisica(PessoaFisica pessoaFisica) {
 		this.pessoaFisica = pessoaFisica;
 		
 		 if(this.pessoaFisica == null){
@@ -98,4 +98,18 @@ public class PessoaFisicaBean implements Serializable {
 		listPessoaFisica = new PessoaFisicaRepository(entityManager).selectAllRepository();
 	}
 	
+	/*
+	 * 
+	 * 
+	 * */
+	public void deleteBean(){
+		EntityManager entityManager = (EntityManager) FacesTool.getRequestAttribute("session");
+		try {
+			new PessoaFisicaService(new PessoaFisicaRepository(entityManager)).deleteService(pessoaFisica);
+			FacesTool.addMessage_Info("Pessoa Excluida Com Sucesso!");
+		} catch (Exception e) {
+			FacesTool.addMessage_Error(e.getMessage());
+		}
+		
+	}
 }

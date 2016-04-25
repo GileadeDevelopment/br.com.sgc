@@ -90,10 +90,10 @@
 
 
 						<h:commandLink id="buttonexcluir"
-							action="#{LancamentoBean.deleteBean}"
+							action="#{PessoaFisicaBean.deleteBean}"
 							styleClass="btn btn-danger btn-sm">
-							<f:setPropertyActionListener value="#{lancamento}"
-								target="#{LancamentoBean.lancamento}" />
+							<f:setPropertyActionListener value="#{pessoa}"
+								target="#{PessoaFisicaBean.pessoaFisica}" />
 								<span class="glyphicon glyphicon-trash" />
 						</h:commandLink>
 

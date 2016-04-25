@@ -48,4 +48,8 @@ public class PessoaFisicaRepository implements Serializable {
 				.add(Restrictions.eq("dataNascimento",pessoaFisica.getDataNascimento()))
 				.add(Restrictions.eq("sexo", pessoaFisica.getSexo())).uniqueResult();
 	}
+	
+	public void deleteRopository(PessoaFisica pessoaFisica) {
+		entityManager.remove(entityManager.find(PessoaFisica.class, pessoaFisica.getId()));
+	}
 }
